@@ -18,7 +18,7 @@ class _ImcSetstatePageState extends State<ImcSetstatePage> {
   final formKey = GlobalKey<FormState>();
   var imc = 0.0;
 
-  void _calcularImc({ required double peso, required double altura }) async {
+  Future<void> _calcularImc({ required double peso, required double altura }) async {
     setState(() {
       imc = 0.0;
     });
@@ -68,6 +68,7 @@ class _ImcSetstatePageState extends State<ImcSetstatePage> {
                     if (value == null || value.isEmpty) {
                       return 'Peso é obrigatório';
                     }
+                    return null;
                   },
                 ),
                 TextFormField(
@@ -86,6 +87,7 @@ class _ImcSetstatePageState extends State<ImcSetstatePage> {
                     if (value == null || value.isEmpty) {
                       return 'Altura é obrigatório';
                     }
+                    return null;
                   }
                 ),
                 const SizedBox(height: 20,),
